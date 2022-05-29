@@ -15,14 +15,14 @@ pipeline {
 
     stages {
         stage("Build") {
-            script {
-                def browsers = ['chrome', 'firefox']
-                for (i in 0..<browsers.size()) {
-                    echo "Testing the ${browsers[i]} browser"
-                }
-            }
-
             steps {
+                script {
+                    def browsers = ['chrome', 'firefox']
+                    for (i in 0..<browsers.size()) {
+                        echo "Testing the ${browsers[i]} browser"
+                    }
+                }
+
                 sh "mvn clean package"
                 sh "printenv"
             }
