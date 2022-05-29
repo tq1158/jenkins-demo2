@@ -1,10 +1,12 @@
-pipeline{
+pipeline {
     agent any
 
-    stages{
-        stage("Build"){
-            sh "mvn clean package"
-            sh "printenv"
+    stages {
+        stage("Build") {
+            steps {
+                sh "mvn clean package"
+                sh "printenv"
+            }
         }
     }
 
