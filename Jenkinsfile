@@ -21,6 +21,10 @@ pipeline {
                     for (i in 0..<browsers.size()) {
                         echo "Testing the ${browsers[i]} browser"
                     }
+
+                    writeFile(file: 'base64File', text: 'amVua21ucyBib29r', encoding: 'Base64')
+                    def content = readFile(file: 'base64File', encoding: 'UTF-8')
+                    echo "${content}"
                 }
 
                 sh "mvn clean package"
